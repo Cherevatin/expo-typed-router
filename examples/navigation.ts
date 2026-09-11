@@ -1,5 +1,5 @@
 // In your app, place this file at src/navigation/index.ts and import from
-// 'expo-typed-router'. This relative import keeps the repository example local.
+// 'typed-expo-router'. This relative import keeps the repository example local.
 import { createTypedRouter, param } from '../src'
 
 export const navigation = createTypedRouter({

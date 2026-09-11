@@ -1,5 +1,5 @@
 {
-  "name": "expo-typed-router",
+  "name": "typed-expo-router",
   "version": "0.1.0",
   "description": "Config-driven typed navigation and parameter parsing for Expo Router",
   "license": "MIT",
@@ -20,6 +20,8 @@
   "sideEffects": false,
   "scripts": {
     "build": "tsc -p tsconfig.json",
+    "test": "npm run build && npm run test:types && jest --runInBand",
+    "test:types": "tsc -p tests/tsconfig.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "prepack": "npm run build"
   },
@@ -29,8 +31,27 @@
     "react-native": ">=0.83.0 <1"
   },
   "devDependencies": {
+    "@types/jest": "^29.5.0",
+    "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
+    "babel-jest": "^29.7.0",
+    "babel-preset-expo": "^57.0.0",
+    "jest": "^29.7.0",
     "typescript": "^5.9.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testMatch": [
+      "**/tests/**/*.test.ts"
+    ],
+    "transform": {
+      "^.+\\.[jt]sx?$": [
+        "babel-jest",
+        {
+          "presets": ["babel-preset-expo"]
+        }
+      ]
+    }
   },
   "keywords": [
     "expo",
@@ -42,5 +63,13 @@
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cherevatin/typed-expo-router.git"
+  },
+  "homepage": "https://github.com/Cherevatin/typed-expo-router#readme",
+  "bugs": {
+    "url": "https://github.com/Cherevatin/typed-expo-router/issues"
   }
 }
