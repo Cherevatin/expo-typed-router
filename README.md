@@ -1,4 +1,4 @@
-# expo-typed-router
+# typed-expo-router
 
 Define your navigation contract once: named routes, paths, required params, optional query params, and URL parsing. Use it through typed router methods, lambda callbacks, `Link`, `Redirect`, and search-parameter hooks.
 
@@ -27,7 +27,7 @@ The tradeoff is maintaining a config alongside your route files. Expo's generate
 This version targets Expo Router 57 and React 19. From your Expo application's directory, run:
 
 ```sh
-npm install expo-typed-router
+npm install typed-expo-router
 ```
 
 Keep your app's existing `expo-router/entry` entry point and Expo Router setup. No new provider, Babel plugin, or initialization component is needed. The following walkthrough uses a small shopping app and relative imports, so it doesn't require an import alias.
@@ -55,7 +55,7 @@ src/
 Keep the config outside `src/app`, which is reserved for Expo route files. Initialize it once at module scope in **`src/navigation/index.ts`**:
 
 ```ts
-import { createTypedRouter, param } from 'expo-typed-router'
+import { createTypedRouter, param } from 'typed-expo-router'
 
 export const navigation = createTypedRouter({
   home: { path: '/' },
@@ -269,9 +269,9 @@ Use `param.custom(parse, serialize)` for custom values. Parsers receive `string 
 
 ## Import boundaries and compatibility
 
-- Import `createTypedRouter` and `param` from `expo-typed-router` in your shared config module.
+- Import `createTypedRouter` and `param` from `typed-expo-router` in your shared config module.
 - Import configured `router`, `Link`, `Redirect`, and hooks from your application's navigation module everywhere else.
-- Import `Stack`, `Tabs`, `Slot`, and other unchanged APIs from `expo-router` or `expo-typed-router`.
+- Import `Stack`, `Tabs`, `Slot`, and other unchanged APIs from `expo-router` or `typed-expo-router`.
 
 Top-level `Link`, `router`, and search hooks re-exported by the package are Expo's original APIs. They do not know your config. They remain available for native Expo navigation, including external URLs; use your configured exports for this library's typing.
 
