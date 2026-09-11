@@ -23,7 +23,10 @@
     "test": "npm run build && npm run test:types && jest --runInBand",
     "test:types": "tsc -p tests/tsconfig.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "prepack": "npm run build"
+    "prepack": "npm run build",
+    "changeset": "changeset",
+    "version": "changeset version",
+    "release": "changeset publish"
   },
   "peerDependencies": {
     "expo-router": ">=57.0.0 <58",
@@ -31,6 +34,8 @@
     "react-native": ">=0.83.0 <1"
   },
   "devDependencies": {
+    "@changesets/changelog-github": "^1.0.1",
+    "@changesets/cli": "^3.0.2",
     "@types/jest": "^29.5.0",
     "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
@@ -48,7 +53,9 @@
       "^.+\\.[jt]sx?$": [
         "babel-jest",
         {
-          "presets": ["babel-preset-expo"]
+          "presets": [
+            "babel-preset-expo"
+          ]
         }
       ]
     }
